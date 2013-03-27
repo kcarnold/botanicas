@@ -72,6 +72,12 @@
                 <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
             </div>
 
+            <!-- Main app container -->
+            <div id="trees">
+                List of trees in Harvard Yard:
+                <ul id="tree-list"></ul>
+            </div>
+
             <!-- Example row of columns -->
             <div class="row">
                 <div class="span4">
@@ -99,10 +105,16 @@
 
         </div> <!-- /container -->
 
+        <script type="text/template" id="tree-template">
+            A <%- name %> at <%- latlong %> <a href="#" class="moreinfo">More...</a>
+        </script>
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.js"><\/script>')</script>
 
         <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/vendor/underscore.js"></script>
+        <script src="js/vendor/backbone.js"></script>
 
         <script src="js/main.js"></script>
     </body>

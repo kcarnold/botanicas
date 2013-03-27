@@ -44,10 +44,14 @@ $(function() {
   });
 
   app.trees = new app.TreeList();
-  app.trees.url = 'api/trees';
+  app.trees.url = 'api/trees/';
 
   app.TreeListView = Backbone.View.extend({
     el: "#trees", // Use the existing element.
+
+    events: {
+      'submit #addtree': 'submitAddTreeForm'
+    },
 
     initialize: function () {
       app.trees.on('add', this.addTree, this);
@@ -57,9 +61,17 @@ $(function() {
     addTree: function(tree) {
       var view = new app.TreeView({model: tree});
       this.$('#tree-list').append(view.render().el);
+    },
+
+    submitAddTreeForm: function() {
+      app.trees.create({name: $("#name").val(), latlong: $("#latlong").val()});
+      return false;
     }
   });
 
   // Kick off everything.
   app.treeListView = new app.TreeListView();
 });
+
+// Send models using form parameters (a little simpler to handle in PHP.)
+Backbone.emulateJSON = true;

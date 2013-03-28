@@ -1,5 +1,6 @@
 <?php
 $dbHost = "mysql.cs179.org";
+$dbPort = 3306;
 $dbUsername = "cs179sp13test";
 $dbPass = "krzysztof";
 $dbName = "cs179sp13test";
